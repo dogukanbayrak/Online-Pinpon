@@ -381,6 +381,9 @@
 "Assets/Photon/PhotonLibs/WebSocket/SocketWebTcp.cs"
 "Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs"
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
+"Assets/Scripts/CameraFollow.cs"
+"Assets/Scripts/CubeMovement.cs"
+"Assets/Scripts/deneme.cs"
 -langversion:9.0
 
 /deterministic
