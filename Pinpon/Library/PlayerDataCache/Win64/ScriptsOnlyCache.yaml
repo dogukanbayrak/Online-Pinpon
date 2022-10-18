@@ -1,9 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - CameraFollow
     - CubeMovement
-    - deneme
+    - PhotonSettings
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -159,37 +158,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5366}
     - Class: 114
-      Script: {instanceID: 5420}
+      Script: {instanceID: 5422}
     - Class: 114
-      Script: {instanceID: 5446}
+      Script: {instanceID: 5448}
     - Class: 114
-      Script: {instanceID: 5514}
+      Script: {instanceID: 5516}
     - Class: 114
-      Script: {instanceID: 5906}
+      Script: {instanceID: 5908}
     - Class: 114
-      Script: {instanceID: 5952}
+      Script: {instanceID: 5954}
     - Class: 114
-      Script: {instanceID: 6158}
+      Script: {instanceID: 6160}
     - Class: 114
-      Script: {instanceID: 6312}
+      Script: {instanceID: 6314}
     - Class: 114
-      Script: {instanceID: 6664}
+      Script: {instanceID: 6666}
     - Class: 114
-      Script: {instanceID: 6678}
+      Script: {instanceID: 6680}
     - Class: 114
-      Script: {instanceID: 7312}
+      Script: {instanceID: 7314}
     - Class: 114
-      Script: {instanceID: 7860}
+      Script: {instanceID: 7862}
     - Class: 114
-      Script: {instanceID: 8244}
+      Script: {instanceID: 8246}
     - Class: 114
-      Script: {instanceID: 8376}
+      Script: {instanceID: 8378}
     - Class: 114
-      Script: {instanceID: 8478}
+      Script: {instanceID: 8480}
     - Class: 114
-      Script: {instanceID: 8712}
-    - Class: 114
-      Script: {instanceID: 27290}
+      Script: {instanceID: 8714}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1123,10 +1120,16 @@ ScriptsOnlyBuild:
     className: Line
   - hash:
       serializedVersion: 2
-      Hash: b37a1f2f4ec04e59c6c23ab6968f03cb
+      Hash: 250cfe2e253f404ef110bbed63945ea3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CubeMovement
+  - hash:
+      serializedVersion: 2
+      Hash: f39249238424a234c9e3de27032ff416
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraFollow
   - hash:
       serializedVersion: 2
       Hash: e80cf4684910fdd7f091d85a19a93603
@@ -1810,7 +1813,7 @@ ScriptsOnlyBuild:
       Hash: f0ec8ba0c93d59c86e4eedc03a714014
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: deneme
+    className: PhotonSettings
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1889,12 +1892,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: f39249238424a234c9e3de27032ff416
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraFollow
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

@@ -337,7 +337,7 @@
 "Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/CubeMovement.cs"
-"Assets/Scripts/deneme.cs"
+"Assets/Scripts/PhotonSettings.cs"
 -langversion:9.0
 
 /deterministic

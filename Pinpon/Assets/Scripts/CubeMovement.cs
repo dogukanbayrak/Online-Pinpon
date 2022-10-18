@@ -10,13 +10,23 @@ public class CubeMovement : MonoBehaviour
     public float jumpSpeed, moveSpeed;
     public Rigidbody rb;
     PhotonView pw;
+    public Camera mainCam;
 
     void Start()
     {
         pw = GetComponent<PhotonView>();
 
+
+
+        if (!pw.IsMine)
+        {
+            Destroy(mainCam);
+        }
         if (pw.IsMine)
+        {
             GetComponent<Renderer>().material.color = Color.green;
+        }
+
 
     }
 

@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
 
     public Vector3 cameraOffset;
-    deneme deneme;
+    
 
 
     private void Awake()
