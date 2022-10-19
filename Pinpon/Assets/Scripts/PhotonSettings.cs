@@ -12,7 +12,9 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
 
     CameraFollow cameraFollow;
 
-    
+    [SerializeField] private GameObject menuScreen;
+
+    MainMenu mainMenu;
 
 
     void Start()
@@ -35,30 +37,33 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined lobby");
 
-        PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        //PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         //PhotonNetwork.JoinRandomRoom();
-
     }
+
+    public void CreateRoom()
+    {
+        PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        menuScreen.gameObject.SetActive(false);
+    }
+
+
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined room");
 
         CreateCube();
-
-
     }
 
     public override void OnLeftLobby()
     {
         Debug.Log("Leave lobby");
-
     }
 
     public override void OnLeftRoom()
     {
         Debug.Log("Leave room");
-
     }
 
 
@@ -80,8 +85,7 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
     public void EnterLobby()
     {
         Debug.Log("hata ayýklama");
-        //PhotonNetwork.JoinLobby();
-        //PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        
     }
 
     public void RandomNumberGenerator()
@@ -94,11 +98,7 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
         RandomNumberGenerator();
         GameObject cube = PhotonNetwork.Instantiate("Cube", new Vector3(randomPosition,0,randomPosition), Quaternion.identity, 0, null);
         
-           // cameraFollow.SetCameraTarget(cube.transform);
         
-            
-
-
     }
 
 }

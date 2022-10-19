@@ -12,6 +12,8 @@ public class CubeMovement : MonoBehaviour
     PhotonView pw;
     public Camera mainCam;
 
+    PhotonSettings photonSettings;
+
     void Start()
     {
         pw = GetComponent<PhotonView>();
@@ -33,7 +35,10 @@ public class CubeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         Movement();
+
     }
 
 
