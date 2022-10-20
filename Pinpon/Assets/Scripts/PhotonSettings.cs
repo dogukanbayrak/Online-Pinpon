@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.UI;
 
 
 public class PhotonSettings : MonoBehaviourPunCallbacks
@@ -14,7 +15,10 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
 
     [SerializeField] private GameObject menuScreen;
 
-    MainMenu mainMenu;
+    public MainMenu mainMenu;
+
+    public bool listCheck=false;
+    
 
 
     void Start()
@@ -43,8 +47,14 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
-        PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        //PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(mainMenu.serverName, new RoomOptions { MaxPlayers = (byte)mainMenu.maxPlayer, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         menuScreen.gameObject.SetActive(false);
+
+        mainMenu.maxPlayerList.Add(mainMenu.maxPlayer);
+        mainMenu.serverNameList.Add(mainMenu.serverName);
+
+        listCheck = true;
     }
 
 
@@ -52,6 +62,15 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined room");
+
+        //Debug.Log(mainMenu.maxPlayer + "joined max playerrrr");
+
+        //Debug.Log(PhotonNetwork.CurrentRoom.Name);
+
+        
+        //Debug.Log(mainMenu.maxPlayerList[0]);
+        //Debug.Log(mainMenu.serverNameList[0]);
+
 
         CreateCube();
     }
@@ -97,6 +116,7 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
     {
         RandomNumberGenerator();
         GameObject cube = PhotonNetwork.Instantiate("Cube", new Vector3(randomPosition,0,randomPosition), Quaternion.identity, 0, null);
+        
         
         
     }

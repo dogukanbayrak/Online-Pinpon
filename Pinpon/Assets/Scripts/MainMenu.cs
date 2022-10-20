@@ -17,34 +17,66 @@ public class MainMenu : MonoBehaviour
 
     public GameObject mainMenu;
 
-    PhotonSettings photonSettings;
+    public PhotonSettings photonSettings;
 
     public string serverName;
 
     public InputField serverNameInput;
 
     public int maxPlayer;
+    public string maxPlayerText;
 
     public InputField maxPlayerInput;
 
 
+    public List<int> maxPlayerList;
+
+    public List<string> serverNameList;
+
+    public string serverListServerName;
+    public int serverListMaxPlayer;
+
+
+    public void Start()
+    {
+        maxPlayerList = new List<int>();
+        serverNameList = new List<string>();
+    }
+
+
+    public void Update()
+    {
+        Debug.Log(serverListMaxPlayer);
+
+        if (photonSettings.listCheck)
+        {
+            Serverlist();
+        }
+        
+    }
+
+    public void Serverlist()
+    {
+        for (int i=0; i<=serverNameList.Count; i++)
+        {
+            serverListServerName = serverNameList[i];
+            serverListMaxPlayer = serverName[i];
+        }
+    }
 
     public void SetServerSettings()
     {
-        string name;
-
+        
         serverName = serverNameInput.text;
 
-        name = maxPlayerInput.text;
+        maxPlayerText = maxPlayerInput.text;
+        maxPlayer = int.Parse(maxPlayerText);
 
-        Debug.Log(serverName+" "+ name);
+        //Debug.Log(serverName+" "+ maxPlayerText);
 
-        maxPlayer = int.Parse(name);
+        //Debug.Log(maxPlayer + 3); //int maxPlayer check
 
-        Debug.Log(maxPlayer + 3); //int maxPlayer check
-
-        
-
+        photonSettings.CreateRoom();
     }
 
 

@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CubeMovement
+    - MainMenu
     - PhotonSettings
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -40,6 +41,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
@@ -78,11 +81,26 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.FontData
+    - UnityEngine.UI.InputField/EndEditEvent
+    - UnityEngine.UI.InputField/OnChangeEvent
+    - UnityEngine.UI.InputField/SubmitEvent
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: ReturnToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: SetServerSettings
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: CreateRoom
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: OnApplicationQuit
   sceneClasses:
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -138,9 +156,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2260}
     - Class: 114
+      Script: {instanceID: 2398}
+    - Class: 114
       Script: {instanceID: 2730}
     - Class: 114
       Script: {instanceID: 2964}
+    - Class: 114
+      Script: {instanceID: 3018}
     - Class: 114
       Script: {instanceID: 3194}
     - Class: 114
@@ -176,17 +198,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6680}
     - Class: 114
-      Script: {instanceID: 7314}
+      Script: {instanceID: 7100}
     - Class: 114
-      Script: {instanceID: 7862}
+      Script: {instanceID: 7316}
     - Class: 114
-      Script: {instanceID: 8246}
+      Script: {instanceID: 7864}
     - Class: 114
-      Script: {instanceID: 8378}
+      Script: {instanceID: 8248}
     - Class: 114
-      Script: {instanceID: 8480}
+      Script: {instanceID: 8380}
     - Class: 114
-      Script: {instanceID: 8714}
+      Script: {instanceID: 8482}
+    - Class: 114
+      Script: {instanceID: 8716}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1468,6 +1492,12 @@ ScriptsOnlyBuild:
     className: UnityOnPointerEnterMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 84bae0b56be90a9df60c867dc9e8a911
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1810,7 +1840,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: f0ec8ba0c93d59c86e4eedc03a714014
+      Hash: a94fefd398c8505ff4b6c71efe2f168b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PhotonSettings
