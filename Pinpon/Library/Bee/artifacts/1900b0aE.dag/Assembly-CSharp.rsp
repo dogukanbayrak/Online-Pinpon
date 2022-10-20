@@ -385,6 +385,7 @@
 "Assets/Scripts/CubeMovement.cs"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PhotonSettings.cs"
+"Assets/Scripts/RoomListItem.cs"
 -langversion:9.0
 
 /deterministic

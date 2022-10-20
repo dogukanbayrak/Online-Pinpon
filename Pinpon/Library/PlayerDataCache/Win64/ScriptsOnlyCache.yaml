@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CubeMovement
     - MainMenu
     - PhotonSettings
+    - RoomListItem
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -46,6 +47,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     PhotonRealtime:
     - Photon.Realtime.AppSettings
@@ -71,6 +73,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -90,6 +93,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: RoomListItem
+    methodName: OnClick
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: ReturnToMainMenu
   - assembly: Assembly-CSharp
@@ -101,6 +107,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: OnApplicationQuit
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: FindRoom
   sceneClasses:
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -200,6 +209,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7100}
     - Class: 114
+      Script: {instanceID: 7132}
+    - Class: 114
       Script: {instanceID: 7316}
     - Class: 114
       Script: {instanceID: 7864}
@@ -211,6 +222,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8482}
     - Class: 114
       Script: {instanceID: 8716}
+    - Class: 114
+      Script: {instanceID: 25230}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1492,7 +1505,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerEnterMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 84bae0b56be90a9df60c867dc9e8a911
+      Hash: b5b3a5b7c11be6d7e913a56474fea904
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenu
@@ -1840,7 +1853,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: a94fefd398c8505ff4b6c71efe2f168b
+      Hash: 45a8e433ee28906854ec01f28a1ac1ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PhotonSettings
@@ -1922,6 +1935,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: e0766a0e8938b34dbdc572ce4b274d5c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoomListItem
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity

@@ -4,29 +4,39 @@ using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.UI;
-
+using Photon.Pun.Demo.PunBasics;
 
 public class PhotonSettings : MonoBehaviourPunCallbacks
 {
 
+    public static PhotonSettings Instance;
+
+
     public int randomPosition;
 
-    CameraFollow cameraFollow;
+    
 
     [SerializeField] private GameObject menuScreen;
 
     public MainMenu mainMenu;
 
     public bool listCheck=false;
-    
 
+
+
+    [SerializeField] Transform roomListContent;
+    [SerializeField] GameObject roomListPrefab;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
         Debug.Log("Connecting to server");        
         PhotonNetwork.ConnectUsingSettings();
         
-        cameraFollow = FindObjectOfType<CameraFollow>();
         
     }
 
@@ -40,6 +50,7 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined lobby");
+        
 
         //PhotonNetwork.JoinOrCreateRoom("oda", new RoomOptions { MaxPlayers = 3, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         //PhotonNetwork.JoinRandomRoom();
@@ -57,17 +68,22 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
         listCheck = true;
     }
 
-
+    public void JoinRoom(RoomInfo info)
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+    }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined room");
 
+        mainMenu.ScreenClose();
+
         //Debug.Log(mainMenu.maxPlayer + "joined max playerrrr");
 
         //Debug.Log(PhotonNetwork.CurrentRoom.Name);
 
-        
+
         //Debug.Log(mainMenu.maxPlayerList[0]);
         //Debug.Log(mainMenu.serverNameList[0]);
 
@@ -117,8 +133,25 @@ public class PhotonSettings : MonoBehaviourPunCallbacks
         RandomNumberGenerator();
         GameObject cube = PhotonNetwork.Instantiate("Cube", new Vector3(randomPosition,0,randomPosition), Quaternion.identity, 0, null);
         
-        
-        
     }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        
+
+        
+        foreach(Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+        }
+        for(int i=0; i<roomList.Count; i++)
+        {
+            Instantiate(roomListPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+        }
+
+
+
+    }
+
 
 }

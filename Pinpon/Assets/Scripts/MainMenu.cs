@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     //public GameObject roomList;
 
     public GameObject createRoomScreen;
+    public GameObject findRoomScreen;
 
     public GameObject mainMenu;
 
@@ -35,6 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public string serverListServerName;
     public int serverListMaxPlayer;
+
 
 
     public void Start()
@@ -89,10 +91,11 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    public void Play()
+    public void FindRoom()
     {
-        
-        //photonSettings.Jo
+
+        findRoomScreen.gameObject.SetActive(true);
+
     }
 
     public void CreateRoom()
@@ -110,7 +113,10 @@ public class MainMenu : MonoBehaviour
     public void ScreenClose()
     {
         mainMenu.gameObject.SetActive(false);
+        findRoomScreen.gameObject.SetActive(false);
     }
+
+
 
 
 }
