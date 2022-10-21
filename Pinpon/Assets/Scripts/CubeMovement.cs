@@ -7,12 +7,19 @@ using Photon.Pun;
 public class CubeMovement : MonoBehaviour
 {
 
+    //public JoystickCommunication joystickCommunication;
+
+    public Joystick joystick;
+
+    
+
     public float jumpSpeed, moveSpeed;
     public Rigidbody rb;
     PhotonView pw;
     public Camera mainCam;
 
-    PhotonSettings photonSettings;
+    public Canvas canvas;
+
 
     void Start()
     {
@@ -23,6 +30,7 @@ public class CubeMovement : MonoBehaviour
         if (!pw.IsMine)
         {
             Destroy(mainCam);
+            Destroy(canvas);
         }
         if (pw.IsMine)
         {
@@ -47,22 +55,26 @@ public class CubeMovement : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.W) && GetComponent<PhotonView>().IsMine)
+        if (joystick.Vertical > 0.1f && GetComponent<PhotonView>().IsMine)
         {
+            Debug.Log("sadasdasdasdas");
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A) && GetComponent<PhotonView>().IsMine)
-        {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D) && GetComponent<PhotonView>().IsMine)
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.S) && GetComponent<PhotonView>().IsMine)
+        if (joystick.Vertical < -0.1f && GetComponent<PhotonView>().IsMine)
         {
             transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
+        if (joystick.Horizontal > 0.1f && GetComponent<PhotonView>().IsMine)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        }
+
+        if (joystick.Horizontal < -0.1f && GetComponent<PhotonView>().IsMine)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        }
+       
+        
 
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<PhotonView>().IsMine)
         {
